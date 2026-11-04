@@ -1,0 +1,380 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Insinga Grid Analytics | Network data and GIS for electric utilities</title>
+<meta name="description" content="Insinga Grid Analytics helps electric utilities and energy agencies clean, connect and share their distribution network data to expand electricity access and reduce energy losses. Based in Kigali, Rwanda.">
+<meta property="og:title" content="Insinga Grid Analytics">
+<meta property="og:description" content="Network data and GIS for electric utilities. Based in Kigali, Rwanda.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://insingagridanalytics.github.io/">
+<meta property="og:image" content="https://insingagridanalytics.github.io/assets/hero.jpg">
+<meta name="theme-color" content="#0F1B2A">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap">
+<style>
+body{margin:0;background:#FFFFFF}
+a{color:#1B4F8F}a:hover{color:#123A6B}
+.wrap{max-width:1160px;margin:0 auto;padding-left:max(24px,env(safe-area-inset-left,0px));padding-right:max(24px,env(safe-area-inset-right,0px))}
+h1,h2,h3{text-wrap:balance}
+.mono{font-family:"IBM Plex Mono",ui-monospace,Menlo,monospace}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:46px;padding:0 20px;border-radius:4px;font-weight:600;font-size:15px;text-decoration:none}
+.btn-primary{background:#1B4F8F;color:#FFFFFF}.btn-primary:hover{background:#123A6B;color:#FFFFFF}
+.btn-secondary{border:1px solid #C9D0D7;color:#14202B;background:#FFFFFF}.btn-secondary:hover{border-color:#14202B;color:#14202B}
+.navlink{color:#3B4752;text-decoration:none;font-weight:500;font-size:15px;padding:12px 2px}.navlink:hover{color:#14202B}
+input,textarea,select{font:inherit;color:#14202B}
+input:focus-visible,textarea:focus-visible,select:focus-visible,a:focus-visible,button:focus-visible{outline:2px solid #1B4F8F;outline-offset:2px}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+section[id],article[id]{scroll-margin-top:16px}
+.hero{position:relative;overflow:hidden;isolation:isolate;background-color:#0F1B2A}
+.hero::before{content:"";position:absolute;inset:0;z-index:-3;background:url(assets/hero.jpg) right center / cover no-repeat}
+.hero-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2}
+.hero::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,rgba(15,27,42,0.94) 0%,rgba(15,27,42,0.86) 34%,rgba(15,27,42,0.42) 62%,rgba(15,27,42,0.1) 100%)}
+.hero-line{position:absolute;left:0;right:0;bottom:0;height:2px;background:rgba(156,195,245,0.18);overflow:hidden}
+.hero-line::after{content:"";position:absolute;top:0;bottom:0;width:28%;background:linear-gradient(90deg,transparent,#9CC3F5,transparent);animation:current 5s linear infinite}
+.rise{animation:riseIn 0.8s cubic-bezier(.2,.7,.2,1) both}
+@keyframes heroDrift{from{transform:scale(1) translateX(0)}to{transform:scale(1.08) translateX(-1.5%)}}
+@keyframes current{from{left:-30%}to{left:102%}}
+@keyframes riseIn{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+@supports (animation-timeline: view()){.svc{animation:riseIn linear both;animation-timeline:view();animation-range:entry 0% entry 35%}}
+@media (prefers-reduced-motion:reduce){.hero-line::after,.rise,.svc{animation:none !important}.hero-video{display:none}}
+.btn-light{background:#FFFFFF;color:#0F1B2A}.btn-light:hover{background:#E6ECF2;color:#0F1B2A}
+.btn-outline-light{border:1px solid rgba(255,255,255,0.5);color:#FFFFFF}.btn-outline-light:hover{border-color:#FFFFFF;color:#FFFFFF}
+.flink{color:#B7C0C8;text-decoration:none}.flink:hover{color:#FFFFFF}
+.list{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:6px;font-size:15px;color:#3B4752}
+.menu-toggle{display:none;min-height:44px;padding:0 14px;border:1px solid #C9D0D7;border-radius:4px;background:#FFFFFF;color:#14202B;font:inherit;font-size:15px;font-weight:500;cursor:pointer}
+@media (max-width:900px){
+ .menu-toggle{display:inline-flex;align-items:center;margin-left:auto}
+ .navlinks{display:none !important;order:3;width:100%;flex-direction:column;align-items:flex-start !important;gap:0 !important;border-top:1px solid #E1E5E9;padding-top:8px}
+ .navlinks.open{display:flex !important}
+ header .btn-primary{display:none}
+ .hero-title{font-size:36px !important}.sec-title{font-size:28px !important}
+ .svc{padding-block:28px !important}
+ .hero::after{background:rgba(15,27,42,0.78)}
+ .hero::before{background-position:center}
+}
+</style>
+</head>
+<body>
+<div style="width:100%;font-family:'IBM Plex Sans',system-ui,-apple-system,'Segoe UI',sans-serif;color:#14202B;background:#FFFFFF;font-size:17px;line-height:1.6">
+
+<header style="position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:#FFFFFF;border-bottom:1px solid #E1E5E9">
+<div class="wrap" style="display:flex;align-items:center;justify-content:space-between;gap:24px;padding-block:16px;flex-wrap:wrap">
+<a href="#top" style="display:flex;align-items:center;gap:12px;text-decoration:none;color:#14202B">
+<svg width="34" height="34" viewBox="0 0 34 34" aria-hidden="true"><rect x="0.5" y="0.5" width="33" height="33" rx="5" fill="#1B4F8F"></rect><path d="M6 22 H14 L20 12 H28" stroke="#FFFFFF" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></path><circle cx="14" cy="22" r="2.8" fill="#FFFFFF"></circle><circle cx="20" cy="12" r="2.8" fill="#FFFFFF"></circle></svg>
+<span style="display:flex;flex-direction:column;line-height:1.15"><span style="font-size:18px;font-weight:700;letter-spacing:-0.01em">Insinga</span><span style="font-size:13px;color:#5B6772">Grid Analytics</span></span>
+</a>
+<button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
+<nav id="site-nav" class="navlinks" aria-label="Main" style="display:flex;gap:28px;align-items:center">
+<a class="navlink" href="#services">Services</a>
+<a class="navlink" href="#demos">Demos</a>
+<a class="navlink" href="#experience">Experience</a>
+<a class="navlink" href="#training">Training</a>
+<a class="navlink" href="#team">Team</a>
+</nav>
+<a class="btn btn-primary" href="#contact" style="background:#1B4F8F">Book a call</a>
+</div>
+</header>
+
+<section id="top" class="hero" style="color:#FFFFFF">
+<video class="hero-video" src="assets/hero-loop.mp4" poster="assets/hero.jpg" autoplay="" muted="" loop="" playsinline="" preload="auto" aria-hidden="true"></video>
+<div class="wrap" style="padding-block:112px 120px">
+<div style="max-width:620px;display:flex;flex-direction:column;gap:24px">
+<div class="rise" style="font-size:15px;font-weight:600;color:#9CC3F5;animation-delay:0.05s">Energy data consultancy · Kigali, Rwanda</div>
+<h1 class="hero-title rise" style="animation-delay:0.18s;margin:0;font-size:58px;line-height:1.06;font-weight:700;letter-spacing:-0.025em;color:#FFFFFF">Network data and GIS for electric utilities</h1>
+<p class="rise" style="margin:0;font-size:19px;line-height:1.6;color:#D3DCE5;animation-delay:0.32s">We help utilities and energy agencies clean, connect and share their distribution network data, then use it to plan new connections, locate energy losses and share data safely with partners. Based in Kigali, we work with clients internationally, with particular experience in growing grids across Africa.</p>
+<div class="rise" style="display:flex;gap:12px;flex-wrap:wrap;padding-top:4px;animation-delay:0.46s">
+<a class="btn btn-light" href="#contact">Book a call</a>
+<a class="btn btn-outline-light" href="#demos">Book a demo</a>
+</div>
+</div>
+</div>
+<div class="hero-line" aria-hidden="true"></div>
+</section>
+
+<section aria-label="Credentials" style="background:#FFFFFF;border-bottom:1px solid #E1E5E9">
+<div class="wrap" style="padding-block:44px 36px;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:28px 40px">
+<div style="display:flex;flex-direction:column;gap:4px"><div style="font-size:26px;font-weight:700;letter-spacing:-0.015em">10 years</div><div style="font-size:15px;color:#3B4752">6 years of hands-on field engineering on MV and LV distribution networks, and 4 years in software, data and AI</div></div>
+<div style="display:flex;flex-direction:column;gap:4px"><div style="font-size:26px;font-weight:700;letter-spacing:-0.015em">CMU Africa</div><div style="font-size:15px;color:#3B4752">All our engineers trained at Carnegie Mellon University Africa, part of a world-class research university</div></div>
+<div style="display:flex;flex-direction:column;gap:4px"><div style="font-size:26px;font-weight:700;letter-spacing:-0.015em">National scale</div><div style="font-size:15px;color:#3B4752">Governed data platforms designed for national institutions</div></div>
+<div style="display:flex;flex-direction:column;gap:4px"><div style="font-size:26px;font-weight:700;letter-spacing:-0.015em">Open source</div><div style="font-size:15px;color:#3B4752">PostGIS, QGIS, Python, R, OpenMetadata and other open-source tools, with no licence lock-in</div></div>
+<div style="grid-column:1 / -1;border-top:1px solid #E1E5E9;padding-top:20px;font-size:15px;color:#5B6772"><span style="color:#14202B;font-weight:600">We work with</span> electric utilities · energy and infrastructure ministries and agencies · regulators · development partners and electrification programmes · mini-grid and solar developers</div>
+</div>
+</section>
+
+<section id="about" style="background:#F6F7F8;border-top:1px solid #E1E5E9;border-bottom:1px solid #E1E5E9">
+<div class="wrap" style="display:flex;flex-wrap:wrap;gap:48px;padding-block:72px;align-items:center">
+<div style="flex:1 1 440px;min-width:0;display:flex;flex-direction:column;gap:16px">
+<div style="font-size:15px;font-weight:600;color:#1B4F8F">About us</div>
+<h2 class="sec-title" style="margin:0;font-size:34px;line-height:1.2;font-weight:700;letter-spacing:-0.015em">Power distribution field engineering experience and data science expertise</h2>
+<p style="margin:0;font-size:18px;line-height:1.7;color:#3B4752">Our founder, Nshuti Elisé, spent six years as a lineman and electrical engineer on medium- and low-voltage distribution networks at Rwanda Energy Group. Alongside repairing and troubleshooting the power system, he collected the same field GIS data utilities now struggle to use. He then trained in data science and information technology at Carnegie Mellon University Africa. We know the network from high-voltage pylons to smart meters, both on the ground and in the database, and why the two often disagree.</p>
+</div>
+<figure style="flex:0 1 340px;min-width:0;max-width:100%;margin:0;display:flex;flex-direction:column;gap:10px">
+<video src="assets/field.mp4" poster="assets/field-poster.jpg" autoplay="" muted="" loop="" playsinline="" controls="" aria-label="Our founder climbing a wooden pole to fix an electricity fault" style="width:100%;max-width:100%;aspect-ratio:4 / 5;object-fit:cover;border-radius:6px;background:#14202B;display:block"></video>
+<figcaption style="font-size:14px;color:#5B6772">Our founder climbing a pole to fix an electricity fault, about a decade ago.</figcaption>
+</figure>
+</div>
+</section>
+
+<section id="services" style="background:#FFFFFF">
+<div class="wrap" style="padding-block:80px;display:flex;flex-direction:column;gap:28px">
+<div style="max-width:720px;display:flex;flex-direction:column;gap:12px">
+<div style="font-size:15px;font-weight:600;color:#1B4F8F">Services</div>
+<h2 class="sec-title" style="margin:0;font-size:40px;line-height:1.15;font-weight:700;letter-spacing:-0.02em">What we do</h2>
+<p style="margin:0;font-size:18px;color:#3B4752">Most utilities already hold years of GIS, metering and billing records, often in separate systems that don't link to each other. We connect that data, then use it to expand access and cut losses.</p>
+</div>
+
+<div style="display:flex;flex-direction:column">
+
+<article id="data-engineering" class="svc" style="display:flex;flex-wrap:wrap;gap:20px 56px;padding-block:36px;border-top:1px solid #E1E5E9">
+<div style="flex:1 1 440px;min-width:0;display:flex;flex-direction:column;gap:12px">
+<div style="font-size:14px;font-weight:600;color:#1B4F8F">Data foundation</div>
+<h3 style="margin:0;font-size:24px;font-weight:600;letter-spacing:-0.01em">Network data audit and spatial data engineering</h3>
+<p style="margin:0;font-size:17px;color:#3B4752">We review MV and LV GIS layers for missing records, duplicates and broken connections, correct the network topology, and trace every customer to its transformer and feeder. We then build the spatial database and automated pipelines that keep GIS files, field surveys and system exports in one connected, up-to-date place.</p>
+<div style="font-size:15px;color:#5B6772">Usual starting point: Network Data Health Check, 3–4 weeks</div>
+<a class="btn btn-secondary" href="#contact" data-demo="Demo: network data health check" style="align-self:flex-start">Book this demo</a>
+</div>
+<div style="flex:1 1 360px;min-width:0;display:flex;flex-direction:column;gap:10px">
+<img src="assets/data-foundation.jpg" alt="Layers of a data foundation, from data ingestion and storage to governance, quality and discovery" loading="lazy" style="width:100%;max-width:100%;aspect-ratio:1200 / 655;object-fit:cover;border-radius:6px;margin-bottom:6px">
+<div style="font-size:15px;font-weight:600">What you get</div>
+<ul class="list">
+<li>Data quality report and scorecard</li>
+<li>Corrected, connected network model</li>
+<li>Documented PostGIS database and automated data pipelines</li>
+<li>Feeder and transformer statistics: load, line length, customer numbers</li>
+</ul>
+</div>
+</article>
+
+<article id="access-planning" class="svc" style="display:flex;flex-wrap:wrap;gap:20px 56px;padding-block:36px;border-top:1px solid #E1E5E9">
+<div style="flex:1 1 440px;min-width:0;display:flex;flex-direction:column;gap:12px">
+<div style="font-size:14px;font-weight:600;color:#1B4F8F">Electricity access</div>
+<h3 style="margin:0;font-size:24px;font-weight:600;letter-spacing:-0.01em">Geospatial electrification planning</h3>
+<p style="margin:0;font-size:17px;color:#3B4752">Least-cost electrification plans for universal access. For every settlement, we show whether grid extension, a mini-grid or solar home systems is the cheapest way to provide electricity, and the best routes for extending the grid.</p>
+<a class="btn btn-secondary" href="#contact" data-demo="Demo: electricity access map" style="align-self:flex-start">Book this demo</a>
+</div>
+<div style="flex:1 1 360px;min-width:0;display:flex;flex-direction:column;gap:10px">
+<img src="assets/electricity-access.jpg" alt="Distribution transformer on a pole above terraced hills and a village at sunset" loading="lazy" style="width:100%;max-width:100%;aspect-ratio:1200 / 655;object-fit:cover;border-radius:6px;margin-bottom:6px">
+<div style="font-size:15px;font-weight:600">How it works</div>
+<ol class="list">
+<li>Collect data from public and private energy sector players and integrate it into one GIS.</li>
+<li>Map where people live and estimate the electricity needs of households, schools, health centres and businesses.</li>
+<li>Map the existing network and where it has capacity for new connections.</li>
+<li>Produce a least-cost electrification map with grid extension routes, off-grid zones and a prioritised investment list.</li>
+</ol>
+</div>
+</article>
+
+<article id="losses" class="svc" style="display:flex;flex-wrap:wrap;gap:20px 56px;padding-block:36px;border-top:1px solid #E1E5E9">
+<div style="flex:1 1 440px;min-width:0;display:flex;flex-direction:column;gap:12px">
+<div style="font-size:14px;font-weight:600;color:#1B4F8F">Energy losses</div>
+<h3 style="margin:0;font-size:24px;font-weight:600;letter-spacing:-0.01em">Energy loss reduction</h3>
+<p style="margin:0;font-size:17px;color:#3B4752">We compare energy sent out with energy billed for each feeder and transformer area, then separate technical losses (energy lost as heat in lines and transformers) from non-technical losses (metering faults, billing errors and illegal connections). We also check whether load is spread evenly across the three phases of each transformer, since uneven phases overheat equipment and add to losses.</p>
+<a class="btn btn-secondary" href="#contact" data-demo="Demo: loss heat map and phase balancing" style="align-self:flex-start">Book this demo</a>
+</div>
+<div style="flex:1 1 360px;min-width:0;display:flex;flex-direction:column;gap:10px">
+<img src="assets/energy-losses.jpg" alt="Diagram of loss analysis: energy sent out versus energy billed, technical and non-technical losses, and transformer phase balancing" loading="lazy" style="width:100%;max-width:100%;aspect-ratio:1300 / 709;object-fit:cover;border-radius:6px;margin-bottom:6px">
+<div style="font-size:15px;font-weight:600">What you get</div>
+<ul class="list">
+<li>Energy balance by feeder and transformer area</li>
+<li>Loss heat maps with technical and non-technical losses shown separately</li>
+<li>Inspection priority lists for field teams</li>
+<li>Phase imbalance by transformer and lists of customers to reconnect</li>
+</ul>
+</div>
+</article>
+
+
+<article id="data-sharing" class="svc" style="display:flex;flex-wrap:wrap;gap:20px 56px;padding-block:36px;border-top:1px solid #E1E5E9">
+<div style="flex:1 1 440px;min-width:0;display:flex;flex-direction:column;gap:12px">
+<div style="font-size:14px;font-weight:600;color:#1B4F8F">Data sharing</div>
+<h3 style="margin:0;font-size:24px;font-weight:600;letter-spacing:-0.01em">Governed data sharing and data governance</h3>
+<p style="margin:0;font-size:17px;color:#3B4752">Researchers, funders, regulators and vendors regularly ask utilities for data. We build platforms where the utility decides what is released, partners receive approved samples only, and partner code runs on the full data inside the utility. We also set up data ownership, update procedures and sharing rules aligned with national data protection law.</p>
+<div style="font-size:15px;color:#5B6772">Used for research partnerships, funder and regulator reporting, vendor evaluation and off-grid coordination.</div>
+</div>
+<div style="flex:1 1 360px;min-width:0;display:flex;flex-direction:column;gap:10px">
+<img src="assets/data-sharing.jpg" alt="Governed data sharing: the utility keeps the full dataset, releases approved samples, and runs partner code inside its own platform" loading="lazy" style="width:100%;max-width:100%;aspect-ratio:1300 / 709;object-fit:cover;border-radius:6px;margin-bottom:6px">
+<div style="font-size:15px;font-weight:600">How it works</div>
+<ol class="list">
+<li>Data owners approve which fields can be shared, and how much.</li>
+<li>Sampling happens inside the utility's own extraction process.</li>
+<li>Access is granted per project and role, with sensitive fields masked and an expiry date.</li>
+<li>Partners submit code; the utility reviews it and runs it on the full data. Only results leave.</li>
+<li>Every release, access and refusal is recorded in a log that cannot be edited.</li>
+</ol>
+</div>
+</article>
+
+<article id="ai-analyst" class="svc" style="display:flex;flex-wrap:wrap;gap:20px 56px;padding-block:36px;border-top:1px solid #E1E5E9;border-bottom:1px solid #E1E5E9">
+<div style="flex:1 1 440px;min-width:0;display:flex;flex-direction:column;gap:12px">
+<div style="font-size:14px;font-weight:600;color:#1B4F8F">Decision support</div>
+<h3 style="margin:0;font-size:24px;font-weight:600;letter-spacing:-0.01em">AI analyst</h3>
+<p style="margin:0;font-size:17px;color:#3B4752">Once the data is clean and connected, we can add an AI assistant on top of it. Staff ask questions in plain language and get answers with the data and steps behind them, plus draft reports for review. It can run on the utility's own servers, only sees data each user is permitted to see, and says when data is insufficient rather than guessing.</p>
+<div style="font-size:15px;color:#5B6772">Added after data set-up, 6–8 weeks</div>
+<a class="btn btn-secondary" href="#contact" data-demo="Demo: AI analyst" style="align-self:flex-start">Book this demo</a>
+</div>
+<figure style="flex:1 1 360px;min-width:0;margin:0;display:flex;flex-direction:column;gap:8px;align-self:flex-start">
+<img src="assets/ai-analyst.jpg" alt="AI assistant answering a question about losses on Feeder 7, with a map highlighting three transformer areas" loading="lazy" style="width:100%;max-width:100%;aspect-ratio:1300 / 709;object-fit:cover;border-radius:6px;border:1px solid #E1E5E9">
+<figcaption style="font-size:13px;color:#5B6772">Example of the AI analyst on a loss question. Illustrative data.</figcaption>
+</figure>
+</article>
+
+</div>
+
+<div id="demos" style="display:flex;flex-wrap:wrap;gap:16px 24px;align-items:center;justify-content:space-between;background:#F6F7F8;border:1px solid #E1E5E9;border-radius:6px;padding:22px 26px;scroll-margin-top:16px">
+<p style="margin:0;font-size:16px;color:#3B4752;flex:1 1 380px;min-width:0"><strong style="color:#14202B">Demos.</strong> Each demo is a 20-minute online session on open data for one district, with synthetic data clearly labelled where utility data would be needed. The full walkthrough covers all four in 45 minutes.</p>
+<a class="btn btn-primary" href="#contact" data-demo="Demo: full walkthrough" style="background:#1B4F8F">Book the full walkthrough</a>
+</div>
+</div>
+</section>
+
+<section id="approach" style="background:#F6F7F8;border-top:1px solid #E1E5E9;border-bottom:1px solid #E1E5E9">
+<div class="wrap" style="padding-block:72px;display:flex;flex-direction:column;gap:32px">
+<div style="max-width:720px;display:flex;flex-direction:column;gap:12px">
+<div style="font-size:15px;font-weight:600;color:#1B4F8F">How we work</div>
+<h2 class="sec-title" style="margin:0;font-size:40px;line-height:1.15;font-weight:700;letter-spacing:-0.02em">How a typical project runs</h2>
+</div>
+<ol style="margin:0;padding:0;list-style:none;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:24px">
+<li style="display:flex;flex-direction:column;gap:6px;border-top:1px solid #C9D0D7;padding-top:16px"><span class="mono" style="font-size:13px;color:#1B4F8F">1</span><span style="font-weight:600;font-size:18px">Assessment</span><span style="font-size:15px;color:#3B4752">Inventory of existing datasets and a quality review against the needs of your planning and operations teams.</span></li>
+<li style="display:flex;flex-direction:column;gap:6px;border-top:1px solid #C9D0D7;padding-top:16px"><span class="mono" style="font-size:13px;color:#1B4F8F">2</span><span style="font-weight:600;font-size:18px">Data repair and modelling</span><span style="font-size:15px;color:#3B4752">Correction of the network model and linking of customer, meter and asset records.</span></li>
+<li style="display:flex;flex-direction:column;gap:6px;border-top:1px solid #C9D0D7;padding-top:16px"><span class="mono" style="font-size:13px;color:#1B4F8F">3</span><span style="font-weight:600;font-size:18px">Analysis and platform</span><span style="font-size:15px;color:#3B4752">The analysis you need, plus the database, dashboards and data rules to keep it running.</span></li>
+<li style="display:flex;flex-direction:column;gap:6px;border-top:1px solid #C9D0D7;padding-top:16px"><span class="mono" style="font-size:13px;color:#1B4F8F">4</span><span style="font-weight:600;font-size:18px">Training and support</span><span style="font-size:15px;color:#3B4752">Your staff learn to run and update everything, using open-source tools where possible. Monthly analytics support is available afterwards.</span></li>
+</ol>
+<div style="font-size:15px;color:#5B6772">Pricing is fixed per engagement and agreed after a free first call.</div>
+</div>
+</section>
+
+<section id="experience" style="background:#FFFFFF">
+<div class="wrap" style="padding-block:72px;display:flex;flex-direction:column;gap:28px">
+<div style="max-width:720px;display:flex;flex-direction:column;gap:12px">
+<div style="font-size:15px;font-weight:600;color:#1B4F8F">Track record</div>
+<h2 class="sec-title" style="margin:0;font-size:40px;line-height:1.15;font-weight:700;letter-spacing:-0.02em">Selected experience</h2>
+</div>
+<div style="display:flex;flex-direction:column;border-top:1px solid #E1E5E9">
+<div style="display:flex;flex-wrap:wrap;gap:4px 40px;padding-block:18px;border-bottom:1px solid #E1E5E9"><div style="flex:0 0 130px;font-size:15px;color:#5B6772">Current</div><div style="flex:1 1 420px;min-width:0"><div style="font-weight:600;font-size:17px">Governed data sharing portal at Rwanda Space Agency (RSA)</div><div style="font-size:16px;color:#3B4752">Building a governed geospatial data sharing portal, giving institutions controlled access to national geospatial data.</div></div></div>
+<div style="display:flex;flex-wrap:wrap;gap:4px 40px;padding-block:18px;border-bottom:1px solid #E1E5E9"><div style="flex:0 0 130px;font-size:15px;color:#5B6772">2026</div><div style="flex:1 1 420px;min-width:0"><div style="font-weight:600;font-size:17px">GIS solution architecture and governed data sharing for an electrification research programme</div><div style="font-size:16px;color:#3B4752">Led GIS data engineering and the software team for a UK-funded research project with Rwanda's national utility. Designed an auditable data-sharing architecture between the utility and a research centre, built with PostGIS, a data catalogue, APIs and AI-assisted analysis.</div></div></div>
+<div style="display:flex;flex-wrap:wrap;gap:4px 40px;padding-block:18px;border-bottom:1px solid #E1E5E9"><div style="flex:0 0 130px;font-size:15px;color:#5B6772">2024–2025</div><div style="flex:1 1 420px;min-width:0"><div style="font-weight:600;font-size:17px">Energy loss mapping and computation research</div><div style="font-size:16px;color:#3B4752">Graduate research at Carnegie Mellon University Africa on estimating where distribution losses occur.</div></div></div>
+<div style="display:flex;flex-wrap:wrap;gap:4px 40px;padding-block:18px;border-bottom:1px solid #E1E5E9"><div style="flex:0 0 130px;font-size:15px;color:#5B6772">Data quality</div><div style="flex:1 1 420px;min-width:0"><div style="font-weight:600;font-size:17px">LV and MV network data cleaning and quality assessment</div><div style="font-size:16px;color:#3B4752">Distribution network GIS data.</div></div></div>
+<div style="display:flex;flex-wrap:wrap;gap:4px 40px;padding-block:18px;border-bottom:1px solid #E1E5E9"><div style="flex:0 0 130px;font-size:15px;color:#5B6772">2016–2022</div><div style="flex:1 1 420px;min-width:0"><div style="font-weight:600;font-size:17px">Field GIS data collection on MV and LV distribution networks</div><div style="font-size:16px;color:#3B4752">Electrical engineer at a national utility, mapping lines, poles and transformers with ODK and KoBoToolbox.</div></div></div>
+</div>
+</div>
+</section>
+
+<section id="training" style="background:#F6F7F8;border-top:1px solid #E1E5E9;border-bottom:1px solid #E1E5E9">
+<div class="wrap" style="padding-block:72px;display:flex;flex-wrap:wrap;gap:40px 56px;align-items:flex-start">
+<div style="flex:1 1 320px;min-width:0;display:flex;flex-direction:column;gap:14px">
+<div style="font-size:15px;font-weight:600;color:#1B4F8F">Training</div>
+<h2 class="sec-title" style="margin:0;font-size:40px;line-height:1.15;font-weight:700;letter-spacing:-0.02em">Courses for utility staff</h2>
+<p style="margin:0;font-size:17px;color:#3B4752">Practical courses using your own network data, for engineers, GIS officers and managers. Delivered on site or online.</p>
+<a class="btn btn-secondary" href="#contact" data-demo="Training" style="align-self:flex-start">Ask about training</a>
+</div>
+<div style="flex:1 1 480px;min-width:0;display:flex;flex-direction:column;border-top:1px solid #E1E5E9">
+<div style="display:flex;flex-wrap:wrap;justify-content:space-between;gap:2px 24px;padding-block:14px;border-bottom:1px solid #E1E5E9"><div style="flex:1 1 300px;min-width:0"><div style="font-weight:600">GIS for distribution networks</div><div style="font-size:15px;color:#3B4752">QGIS and PostGIS for mapping, editing and checking network data.</div></div><div style="font-size:14px;color:#5B6772">Engineers · 5 days</div></div>
+<div style="display:flex;flex-wrap:wrap;justify-content:space-between;gap:2px 24px;padding-block:14px;border-bottom:1px solid #E1E5E9"><div style="flex:1 1 300px;min-width:0"><div style="font-weight:600">Network data quality</div><div style="font-size:15px;color:#3B4752">Finding and correcting topology errors, duplicates and missing links.</div></div><div style="font-size:14px;color:#5B6772">GIS teams · 3 days</div></div>
+<div style="display:flex;flex-wrap:wrap;justify-content:space-between;gap:2px 24px;padding-block:14px;border-bottom:1px solid #E1E5E9"><div style="flex:1 1 300px;min-width:0"><div style="font-weight:600">Data governance for utilities</div><div style="font-size:15px;color:#3B4752">Data ownership, standards, sharing rules and data protection.</div></div><div style="font-size:14px;color:#5B6772">Managers · 2 days</div></div>
+<div style="display:flex;flex-wrap:wrap;justify-content:space-between;gap:2px 24px;padding-block:14px;border-bottom:1px solid #E1E5E9"><div style="flex:1 1 300px;min-width:0"><div style="font-weight:600">Python, R, SQL and AI for energy data</div><div style="font-size:15px;color:#3B4752">Querying network and customer databases, automating routine analysis and reports, and using AI tools responsibly.</div></div><div style="font-size:14px;color:#5B6772">Analysts · 5 days</div></div>
+</div>
+</div>
+</section>
+
+<section id="team" style="background:#FFFFFF">
+<div class="wrap" style="padding-block:72px;display:flex;flex-direction:column;gap:32px">
+<div style="display:flex;flex-direction:column;gap:12px">
+<div style="font-size:15px;font-weight:600;color:#1B4F8F">Team</div>
+<h2 class="sec-title" style="margin:0;font-size:40px;line-height:1.15;font-weight:700;letter-spacing:-0.02em">Who you'll work with</h2>
+</div>
+<div style="display:flex;flex-wrap:wrap;gap:28px;align-items:flex-start">
+<img src="assets/founder.jpg" alt="Nshuti Elisé, founder" style="flex:0 0 200px;width:200px;max-width:100%;aspect-ratio:4 / 5;object-fit:cover;object-position:50% 30%;border-radius:6px">
+<div style="flex:1 1 360px;min-width:0;display:flex;flex-direction:column;gap:8px">
+<div style="font-size:15px;font-weight:600;color:#1B4F8F">Founder</div>
+<h3 style="margin:0;font-size:28px;font-weight:700;letter-spacing:-0.01em">Nshuti Elisé</h3>
+<div style="font-size:16px;color:#5B6772">Data scientist and GIS solution architect</div>
+<p style="margin:0;font-size:16px;color:#3B4752;max-width:44em">Nshuti works at the intersection of AI, data and software engineering, geospatial intelligence and applied research. He builds data-driven solutions that help government, energy, infrastructure and business organisations make evidence-based decisions.</p>
+<p style="margin:0;font-size:16px;color:#3B4752;max-width:44em">After six years of field engineering at Rwanda Energy Group, he now works as a consulting data scientist at 71point4, delivering data projects with government institutions. His work turns complex data into practical tools through data engineering, AI-powered systems, geospatial analytics and software development, connecting research, technology and policy with day-to-day decisions.</p>
+<p style="margin:0;font-size:14px;color:#5B6772">Diploma in Electrical Engineering, Rwanda Polytechnic · MSc in Information Technology, Carnegie Mellon University Africa</p>
+<a href="https://www.linkedin.com/in/elise-nshuti/" aria-label="Nshuti Elisé on LinkedIn" style="align-self:flex-start;display:inline-flex;align-items:center;gap:8px;min-height:40px;padding:0 14px;border:1px solid #C9D0D7;border-radius:4px;font-size:14px;font-weight:500;color:#14202B;text-decoration:none"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1B4F8F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="3"></rect><path d="M8 10v7M8 7v.01M12 17v-4a2 2 0 0 1 4 0v4M12 10v7"></path></svg>LinkedIn</a>
+</div>
+</div>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:32px 48px;border-top:1px solid #E1E5E9;padding-top:32px">
+<div style="display:flex;flex-wrap:wrap;gap:20px;align-items:flex-start;min-width:0">
+<img src="assets/cofounder.jpg" alt="Vital Ahishakiye, co-founder" style="flex:0 0 120px;width:120px;max-width:100%;aspect-ratio:4 / 5;object-fit:cover;object-position:50% 35%;border-radius:6px">
+<div style="flex:1 1 240px;min-width:0;display:flex;flex-direction:column;gap:6px">
+<div style="font-size:14px;font-weight:600;color:#5B6772">Co-founder</div>
+<h3 style="margin:0;font-size:22px;font-weight:700">Vital Ahishakiye</h3>
+<div style="font-size:15px;color:#5B6772">Data engineer</div>
+<p style="margin:0;font-size:15px;color:#3B4752">Data engineering, analytics and geospatial analytics. MSc in Electrical and Computer Engineering (data science and AI), Carnegie Mellon University Africa · BSc in Electrical Power Engineering, University of Rwanda. Previously an electrical engineer at the University of Rwanda College of Medicine and Health Sciences and a solar PV system designer at Might Engineering Co. Ltd.</p>
+<a href="https://www.linkedin.com/in/vitalahishakiye/" aria-label="Vital Ahishakiye on LinkedIn" style="align-self:flex-start;display:inline-flex;align-items:center;gap:8px;min-height:40px;padding:0 14px;border:1px solid #C9D0D7;border-radius:4px;font-size:14px;font-weight:500;color:#14202B;text-decoration:none"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1B4F8F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="3"></rect><path d="M8 10v7M8 7v.01M12 17v-4a2 2 0 0 1 4 0v4M12 10v7"></path></svg>LinkedIn</a>
+</div>
+</div>
+<div style="display:flex;flex-wrap:wrap;gap:20px;align-items:flex-start;min-width:0">
+<img src="assets/cofounder2.jpg" alt="Mandela Wilson, co-founder" style="flex:0 0 120px;width:120px;max-width:100%;aspect-ratio:4 / 5;object-fit:cover;object-position:50% 25%;border-radius:6px">
+<div style="flex:1 1 240px;min-width:0;display:flex;flex-direction:column;gap:6px">
+<div style="font-size:14px;font-weight:600;color:#5B6772">Co-founder</div>
+<h3 style="margin:0;font-size:22px;font-weight:700">Mandela Wilson</h3>
+<div style="font-size:15px;color:#5B6772">AI and software engineering</div>
+<p style="margin:0;font-size:15px;color:#3B4752">Software engineer with extensive experience building systems for public and private agencies. Trained at Mount Kenya University and Carnegie Mellon University Africa.</p>
+<a href="https://www.linkedin.com/in/mandela-wilson-b6a887209/" aria-label="Mandela Wilson on LinkedIn" style="align-self:flex-start;display:inline-flex;align-items:center;gap:8px;min-height:40px;padding:0 14px;border:1px solid #C9D0D7;border-radius:4px;font-size:14px;font-weight:500;color:#14202B;text-decoration:none"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1B4F8F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="3"></rect><path d="M8 10v7M8 7v.01M12 17v-4a2 2 0 0 1 4 0v4M12 10v7"></path></svg>LinkedIn</a>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<section id="contact" style="background:#F6F7F8;border-top:1px solid #E1E5E9">
+<div class="wrap" style="padding-block:72px;display:flex;flex-wrap:wrap;gap:48px;align-items:flex-start">
+<div style="flex:1 1 360px;min-width:0;display:flex;flex-direction:column;gap:18px">
+<div style="font-size:15px;font-weight:600;color:#1B4F8F">Contact</div>
+<h2 class="sec-title" style="margin:0;font-size:40px;line-height:1.15;font-weight:700;letter-spacing:-0.02em">Discuss a project</h2>
+<p style="margin:0;font-size:18px;color:#3B4752">The first call is free. We will review your situation and tell you whether we can help.</p>
+<dl style="margin:8px 0 0;display:grid;grid-template-columns:auto 1fr;gap:10px 24px;font-size:16px">
+<dt style="color:#5B6772">Email</dt><dd style="margin:0"><a href="mailto:enshuti01@gmail.com">enshuti01@gmail.com</a></dd>
+<dt style="color:#5B6772">Phone</dt><dd style="margin:0"><a href="tel:+250785547693">+250 785 547 693</a></dd>
+<dt style="color:#5B6772">LinkedIn</dt><dd style="margin:0"><a href="https://linkedin.com/in/elise-nshuti">linkedin.com/in/elise-nshuti</a></dd>
+<dt style="color:#5B6772">Office</dt><dd style="margin:0">Gasabo, Kigali, Rwanda</dd>
+</dl>
+<div style="border-top:1px solid #E1E5E9;padding-top:18px;display:flex;flex-direction:column;gap:8px">
+<div style="font-size:15px;font-weight:600">What happens next</div>
+<ol class="list">
+<li>You tell us about your network and what you need.</li>
+<li>We arrange a free 30-minute call.</li>
+<li>We send a short proposal with scope, timeline and a fixed price.</li>
+</ol>
+</div>
+</div>
+<form id="contact-form" action="https://formspree.io/f/mrpprgyq" method="POST" style="flex:1 1 440px;min-width:0;background:#FFFFFF;border:1px solid #E1E5E9;border-radius:6px;padding:28px;display:flex;flex-direction:column;gap:16px">
+<input type="hidden" name="_subject" value="New website enquiry - Insinga Grid Analytics">
+<div style="display:flex;flex-direction:column;gap:6px"><label for="f-name" style="font-weight:500;font-size:15px">Name</label><input id="f-name" name="name" type="text" autocomplete="name" required style="min-height:44px;padding:0 12px;border:1px solid #C9D0D7;border-radius:4px"></div>
+<div style="display:flex;flex-direction:column;gap:6px"><label for="f-org" style="font-weight:500;font-size:15px">Organisation</label><input id="f-org" name="organisation" type="text" autocomplete="organization" style="min-height:44px;padding:0 12px;border:1px solid #C9D0D7;border-radius:4px"></div>
+<div style="display:flex;flex-direction:column;gap:6px"><label for="f-email" style="font-weight:500;font-size:15px">Work email</label><input id="f-email" name="email" type="email" autocomplete="email" required style="min-height:44px;padding:0 12px;border:1px solid #C9D0D7;border-radius:4px"></div>
+<div style="display:flex;flex-direction:column;gap:6px"><label for="f-need" style="font-weight:500;font-size:15px">Area of interest</label><select id="f-need" name="interest" style="min-height:44px;padding:0 12px;border:1px solid #C9D0D7;border-radius:4px;background:#FFFFFF"><option>Demo: full walkthrough</option><option>Demo: network data health check</option><option>Demo: electricity access map</option><option>Demo: loss heat map and phase balancing</option><option>Demo: AI analyst</option><option>Network data audit and spatial data engineering</option><option>Geospatial electrification planning</option><option>Energy loss reduction</option><option>Governed data sharing and data governance</option><option>AI analyst</option><option>Training</option><option>Other</option></select></div>
+<div style="display:flex;flex-direction:column;gap:6px"><label for="f-msg" style="font-weight:500;font-size:15px">Message</label><textarea id="f-msg" name="message" required rows="4" style="padding:10px 12px;border:1px solid #C9D0D7;border-radius:4px;resize:vertical"></textarea></div>
+<button id="f-submit" type="submit" class="btn btn-primary" style="border:0;cursor:pointer;align-self:flex-start;background:#1B4F8F">Send message</button>
+<p id="f-status" role="status" aria-live="polite" style="margin:0;font-size:15px" hidden></p>
+</form>
+</div>
+</section>
+
+<footer style="background:#0F1B2A;color:#B7C0C8">
+<div class="wrap" style="padding-block:56px 28px;display:flex;flex-direction:column;gap:40px">
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:32px">
+<div style="display:flex;flex-direction:column;gap:14px">
+<div style="display:flex;align-items:center;gap:12px"><svg width="34" height="34" viewBox="0 0 34 34" aria-hidden="true"><rect x="0.5" y="0.5" width="33" height="33" rx="5" fill="#1B4F8F"></rect><path d="M6 22 H14 L20 12 H28" stroke="#FFFFFF" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></path><circle cx="14" cy="22" r="2.8" fill="#FFFFFF"></circle><circle cx="20" cy="12" r="2.8" fill="#FFFFFF"></circle></svg><span style="display:flex;flex-direction:column;line-height:1.15"><span style="font-size:18px;font-weight:700;color:#FFFFFF">Insinga</span><span style="font-size:13px">Grid Analytics</span></span></div>
+<p style="margin:0;font-size:15px">Network data and GIS for electric utilities.</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:8px;font-size:15px"><div style="font-weight:600;color:#FFFFFF">Services</div><a class="flink" href="#data-engineering">Data foundation</a><a class="flink" href="#access-planning">Electrification planning</a><a class="flink" href="#losses">Energy losses</a><a class="flink" href="#data-sharing">Data sharing</a><a class="flink" href="#ai-analyst">AI analyst</a></div>
+<div style="display:flex;flex-direction:column;gap:8px;font-size:15px"><div style="font-weight:600;color:#FFFFFF">Company</div><a class="flink" href="#about">About</a><a class="flink" href="#experience">Track record</a><a class="flink" href="#training">Training</a><a class="flink" href="#team">Team</a></div>
+<div style="display:flex;flex-direction:column;gap:8px;font-size:15px"><div style="font-weight:600;color:#FFFFFF">Contact</div><a class="flink" href="mailto:enshuti01@gmail.com">enshuti01@gmail.com</a><a class="flink" href="tel:+250785547693">+250 785 547 693</a><a class="flink" href="https://www.linkedin.com/in/elise-nshuti/">LinkedIn</a><span>Gasabo, Kigali, Rwanda</span></div>
+</div>
+<div style="border-top:1px solid #24364A;padding-top:20px;display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 24px;font-size:14px"><span>© 2026 Insinga Grid Analytics Ltd</span><span>Kigali, Rwanda</span></div>
+</div>
+</footer>
+
+</div>
+
+<script src="assets/site.js"></script>
+</body>
+</html>
