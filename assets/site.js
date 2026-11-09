@@ -16,6 +16,22 @@
     });
   }
 
+
+  // Keep the hero film playing: start it, and restart it if the browser pauses it
+  var heroVideo = document.querySelector('.hero-video');
+  if (heroVideo) {
+    heroVideo.muted = true;
+    var play = function () { var p = heroVideo.play(); if (p && p.catch) p.catch(function () {}); };
+    play();
+    heroVideo.addEventListener('ended', function () { heroVideo.currentTime = 0; play(); });
+    heroVideo.addEventListener('pause', function () { if (!document.hidden) setTimeout(play, 300); });
+    heroVideo.addEventListener('stalled', play);
+    document.addEventListener('visibilitychange', function () { if (!document.hidden) play(); });
+    ['click', 'touchstart', 'scroll', 'keydown'].forEach(function (ev) {
+      window.addEventListener(ev, function once() { play(); window.removeEventListener(ev, once); }, { passive: true });
+    });
+  }
+
   // "Book this demo" buttons pre-select the demo in the contact form
   var select = document.getElementById('f-need');
   document.querySelectorAll('[data-demo]').forEach(function (btn) {

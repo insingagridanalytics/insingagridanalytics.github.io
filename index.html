@@ -4,9 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Insinga Grid Analytics | Unlocking the value of utility and energy data</title>
-<meta name="description" content="Insinga is one platform for power distribution data. LossFinder locates energy losses, ConnectPlan plans new connections and DataHub cleans, catalogues and safely shares utility data.">
+<meta name="description" content="Insinga LossFinder finds where energy is lost between the transformer and the meter, from the network, billing and meter data power utilities already hold.">
 <meta property="og:title" content="Insinga Grid Analytics">
-<meta property="og:description" content="Unlocking the value of utility and energy data. One platform with three products: Insinga LossFinder, ConnectPlan and DataHub.">
+<meta property="og:description" content="Unlocking the value of utility and energy data. Insinga LossFinder: AI-assisted loss detection for low-voltage networks.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://insingagridanalytics.github.io/">
 <meta property="og:image" content="https://insingagridanalytics.github.io/assets/hero.jpg">
@@ -41,7 +41,7 @@ section[id],article[id]{scroll-margin-top:16px}
 @keyframes current{from{left:-30%}to{left:102%}}
 @keyframes riseIn{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
 @supports (animation-timeline: view()){.svc{animation:riseIn linear both;animation-timeline:view();animation-range:entry 0% entry 35%}}
-@media (prefers-reduced-motion:reduce){.hero-line::after,.rise,.svc{animation:none !important}.hero-video{display:none}}
+@media (prefers-reduced-motion:reduce){.hero-line::after,.rise,.svc{animation:none !important}}
 .btn-light{background:#FFFFFF;color:#0F1B2A}.btn-light:hover{background:#E6ECF2;color:#0F1B2A}
 .btn-outline-light{border:1px solid rgba(255,255,255,0.5);color:#FFFFFF}.btn-outline-light:hover{border-color:#FFFFFF;color:#FFFFFF}
 .flink{color:#B7C0C8;text-decoration:none}.flink:hover{color:#FFFFFF}
@@ -86,13 +86,13 @@ section[id],article[id]{scroll-margin-top:16px}
 <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
 <nav id="site-nav" class="navlinks" aria-label="Main" style="display:flex;gap:28px;align-items:center">
 <a class="navlink" href="#problems">Problems we solve</a>
-<a class="navlink" href="#platform">Platform</a>
-<a class="navlink" href="#products">Products</a>
+<a class="navlink" href="#lossfinder">LossFinder</a>
+<a class="navlink" href="#modules">Modules</a>
 <a class="navlink" href="#stories">Stories</a>
 <a class="navlink" href="#team">Team</a>
 <a class="navlink" href="#faq">FAQ</a>
 </nav>
-<a class="btn btn-primary" href="#contact" data-demo="Demo: Insinga platform walkthrough" style="background:#1B4F8F">Book a demo</a>
+<a class="btn btn-primary" href="#contact" data-demo="Demo: Insinga LossFinder" style="background:#1B4F8F">Book a demo</a>
 </div>
 </header>
 
@@ -101,12 +101,12 @@ section[id],article[id]{scroll-margin-top:16px}
 <video class="hero-video" src="assets/hero-loop.mp4" poster="assets/hero.jpg" autoplay="" muted="" loop="" playsinline="" preload="auto" aria-hidden="true"></video>
 <div class="wrap" style="padding-block:112px 120px">
 <div style="max-width:620px;display:flex;flex-direction:column;gap:24px">
-<div class="rise" style="font-size:15px;font-weight:600;color:#9CC3F5;animation-delay:0.05s">One platform for power distribution data</div>
+<div class="rise" style="font-size:15px;font-weight:600;color:#9CC3F5;animation-delay:0.05s">Insinga LossFinder · energy loss detection for power utilities</div>
 <h1 class="hero-title rise" style="animation-delay:0.18s;margin:0;font-size:52px;line-height:1.08;font-weight:700;letter-spacing:-0.025em;color:#FFFFFF">Unlocking the value of utility and energy data</h1>
-<p class="rise" style="margin:0;font-size:19px;line-height:1.6;color:#D3DCE5;animation-delay:0.32s">We help power utilities and energy agencies clean, connect and share their network, GIS, billing and meter data, then use it to plan new connections, locate energy losses and share data safely with partners such as researchers, funders, regulators and vendors. We work with clients internationally, with particular experience in growing grids across Africa.</p>
+<p class="rise" style="margin:0;font-size:19px;line-height:1.6;color:#D3DCE5;animation-delay:0.32s">Insinga LossFinder helps power utilities find where energy is lost between the transformer and the meter. It cleans and connects your network, GIS, billing and meter data, measures losses at every transformer and shows your crews where to act. We combine field engineering experience on low-voltage distribution networks with geospatial and data analytics, and use AI to solve problems that have long been hard to see on the network. On the same data foundation, you can add electrification planning and safe data sharing with researchers, funders, regulators and vendors. We work with clients internationally, with particular experience in growing grids across Africa.</p>
 <div class="rise" style="display:flex;gap:12px;flex-wrap:wrap;padding-top:4px;animation-delay:0.46s">
-<a class="btn btn-light" href="#contact" data-demo="Demo: Insinga platform walkthrough">Schedule a demo</a>
-<a class="btn btn-outline-light" href="#products">See our products</a>
+<a class="btn btn-light" href="#contact" data-demo="Demo: Insinga LossFinder">Schedule a demo</a>
+<a class="btn btn-outline-light" href="#lossfinder">See LossFinder</a>
 </div>
 </div>
 </div>
@@ -126,37 +126,41 @@ section[id],article[id]{scroll-margin-top:16px}
 <section id="problems" style="background:#F6F7F8;border-bottom:1px solid #E1E5E9">
 <div class="wrap" style="padding-block:80px;display:flex;flex-direction:column;gap:36px">
 <div style="max-width:760px;display:flex;flex-direction:column;gap:12px">
-<div style="font-size:15px;font-weight:600;color:#1B4F8F">The problems we solve</div>
-<h2 class="sec-title" style="margin:0;font-size:40px;line-height:1.15;font-weight:700;letter-spacing:-0.02em">Does this sound like your organisation?</h2>
+<div style="font-size:15px;font-weight:600;color:#1B4F8F">The problem we solve</div>
+<h2 class="sec-title" style="margin:0;font-size:40px;line-height:1.15;font-weight:700;letter-spacing:-0.02em">You know energy is being lost. Your data can show where.</h2>
+<p style="margin:0;font-size:18px;color:#3B4752">LossFinder solves the two problems most utilities tell us about first. Once the data is clean, the same foundation supports two more.</p>
 </div>
 <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,440px),1fr));gap:24px">
 <article style="background:#FFFFFF;border:1px solid #E1E5E9;border-radius:6px;padding:28px;display:flex;flex-direction:column;gap:12px;min-width:0">
-<div style="font-size:14px;font-weight:600;color:#1B4F8F">Energy losses</div>
-<h3 style="margin:0;font-size:22px;line-height:1.25;font-weight:700;letter-spacing:-0.01em">You know energy is being lost, but not where.</h3>
+<div style="font-size:14px;font-weight:600;color:#1B4F8F">Energy losses · solved by LossFinder</div>
+<h3 style="margin:0;font-size:22px;line-height:1.25;font-weight:700;letter-spacing:-0.01em">Losses show up in the totals, but not on the map.</h3>
 <p style="margin:0;font-size:16px;color:#3B4752">Between the transformer and the customer's meter, utilities struggle to measure how much energy goes missing, or to separate technical losses (energy lost as heat in lines and equipment) from non-technical losses (meter faults, billing errors, illegal connections). The result is lost revenue every month, and inspection teams sent to the wrong places.</p>
 <p style="margin:0;font-size:16px;color:#3B4752"><strong style="color:#14202B">How we help:</strong> Insinga LossFinder checks your network data, measures losses at every transformer from the data you already hold, and gives your crews a ranked list of meters to inspect.</p>
 <div style="margin-top:auto;padding-top:12px;border-top:1px solid #E1E5E9;display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 16px;font-size:14px"><span style="color:#5B6772">For utilities and regulators</span><a href="#lossfinder">See LossFinder</a></div>
 </article>
 <article style="background:#FFFFFF;border:1px solid #E1E5E9;border-radius:6px;padding:28px;display:flex;flex-direction:column;gap:12px;min-width:0">
-<div style="font-size:14px;font-weight:600;color:#1B4F8F">Electricity access</div>
-<h3 style="margin:0;font-size:22px;line-height:1.25;font-weight:700;letter-spacing:-0.01em">You have connection targets, but no reliable plan to reach them.</h3>
-<p style="margin:0;font-size:16px;color:#3B4752">Ministries and electrification programmes need to know who is still unserved, how far they are from the grid, and whether grid extension, a mini-grid or solar home systems is the cheapest way to reach them.</p>
-<p style="margin:0;font-size:16px;color:#3B4752"><strong style="color:#14202B">How we help:</strong> Insinga ConnectPlan maps who is unserved and shows the least-cost way to connect each area, by grid extension, mini-grid or solar home system.</p>
-<div style="margin-top:auto;padding-top:12px;border-top:1px solid #E1E5E9;display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 16px;font-size:14px"><span style="color:#5B6772">For ministries, funders and mini-grid developers</span><a href="#connectplan">See ConnectPlan</a></div>
-</article>
-<article style="background:#FFFFFF;border:1px solid #E1E5E9;border-radius:6px;padding:28px;display:flex;flex-direction:column;gap:12px;min-width:0">
-<div style="font-size:14px;font-weight:600;color:#1B4F8F">Untapped data</div>
+<div style="font-size:14px;font-weight:600;color:#1B4F8F">Untapped data · solved by LossFinder</div>
 <h3 style="margin:0;font-size:22px;line-height:1.25;font-weight:700;letter-spacing:-0.01em">You hold years of data, but get little value from it.</h3>
 <p style="margin:0;font-size:16px;color:#3B4752">GIS layers, billing records, meter readings and field surveys sit in separate systems that don't link to each other. Staff spend weeks preparing data before any analysis can start.</p>
-<p style="margin:0;font-size:16px;color:#3B4752"><strong style="color:#14202B">How we help:</strong> Insinga DataHub cleans, connects and catalogues your data into one reliable foundation, and Ask Insinga turns it into answers your teams can act on.</p>
-<div style="margin-top:auto;padding-top:12px;border-top:1px solid #E1E5E9;display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 16px;font-size:14px"><span style="color:#5B6772">For utilities and energy agencies</span><a href="#datahub">See DataHub</a></div>
+<p style="margin:0;font-size:16px;color:#3B4752"><strong style="color:#14202B">How we help:</strong> LossFinder starts by cleaning, connecting and cataloguing your data into one reliable foundation, and Ask Insinga turns it into answers your teams can act on.</p>
+<div style="margin-top:auto;padding-top:12px;border-top:1px solid #E1E5E9;display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 16px;font-size:14px"><span style="color:#5B6772">For utilities and energy agencies</span><a href="#lossfinder">See LossFinder</a></div>
+</article>
+</div>
+<div style="display:flex;align-items:center;gap:16px;font-size:14px;font-weight:600;color:#5B6772"><span style="min-width:0">Also on the same data foundation · modules in development</span><span style="flex:1;height:1px;background:#C9D0D7"></span></div>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,440px),1fr));gap:24px">
+<article style="background:#FFFFFF;border:1px solid #E1E5E9;border-radius:6px;padding:28px;display:flex;flex-direction:column;gap:12px;min-width:0">
+<div style="font-size:14px;font-weight:600;color:#1B4F8F">Electricity access · planning module</div>
+<h3 style="margin:0;font-size:22px;line-height:1.25;font-weight:700;letter-spacing:-0.01em">You have connection targets, but no reliable plan to reach them.</h3>
+<p style="margin:0;font-size:16px;color:#3B4752">Ministries and electrification programmes need to know who is still unserved, how far they are from the grid, and whether grid extension, a mini-grid or solar home systems is the cheapest way to reach them.</p>
+<p style="margin:0;font-size:16px;color:#3B4752"><strong style="color:#14202B">How we help:</strong> our planning module, built on the same clean network data as LossFinder, maps who is unserved and shows the least-cost way to connect each area. It is in development.</p>
+<div style="margin-top:auto;padding-top:12px;border-top:1px solid #E1E5E9;display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 16px;font-size:14px"><span style="color:#5B6772">For ministries, funders and mini-grid developers</span><a href="#planning">See the planning module</a></div>
 </article>
 <article style="background:#FFFFFF;border:1px solid #E1E5E9;border-radius:6px;padding:28px;display:flex;flex-direction:column;gap:12px;min-width:0">
-<div style="font-size:14px;font-weight:600;color:#1B4F8F">Data sharing</div>
+<div style="font-size:14px;font-weight:600;color:#1B4F8F">Data sharing · data sharing module</div>
 <h3 style="margin:0;font-size:22px;line-height:1.25;font-weight:700;letter-spacing:-0.01em">Researchers and partners need your data, but you can't share it safely.</h3>
 <p style="margin:0;font-size:16px;color:#3B4752">Utilities rarely have a safe, structured way to share data, so requests stall or raw files are sent without control. Researchers, in turn, have no way to test their methods on real utility data.</p>
-<p style="margin:0;font-size:16px;color:#3B4752"><strong style="color:#14202B">How we help:</strong> with Insinga DataHub, the utility decides what to share, partners receive approved samples only, and every request is logged.</p>
-<div style="margin-top:auto;padding-top:12px;border-top:1px solid #E1E5E9;display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 16px;font-size:14px"><span style="color:#5B6772">For utilities, researchers and development partners</span><a href="#datahub">See DataHub</a></div>
+<p style="margin:0;font-size:16px;color:#3B4752"><strong style="color:#14202B">How we help:</strong> our data sharing module, built on the same foundation, lets the utility decide what to share. Partners receive approved samples only, and every request is logged. It is in development.</p>
+<div style="margin-top:auto;padding-top:12px;border-top:1px solid #E1E5E9;display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 16px;font-size:14px"><span style="color:#5B6772">For utilities, researchers and development partners</span><a href="#data-sharing">See the data sharing module</a></div>
 </article>
 </div>
 <div style="display:flex;flex-wrap:wrap;gap:16px 24px;align-items:center;justify-content:space-between;background:#0F1B2A;color:#D3DCE5;border-radius:6px;padding:26px 28px">
@@ -166,104 +170,89 @@ section[id],article[id]{scroll-margin-top:16px}
 </div>
 </section>
 
-<section id="platform" style="background:#FFFFFF;border-bottom:1px solid #E1E5E9">
+<section id="lossfinder" style="background:#FFFFFF;border-bottom:1px solid #E1E5E9">
 <div class="wrap" style="padding-block:80px;display:flex;flex-direction:column;gap:40px">
 <div style="display:flex;flex-wrap:wrap;gap:20px 56px;align-items:flex-end">
 <div style="flex:1 1 440px;min-width:0;display:flex;flex-direction:column;gap:12px">
-<div style="font-size:15px;font-weight:600;color:#1B4F8F">The Insinga platform</div>
-<h2 class="sec-title" style="margin:0;font-size:40px;line-height:1.15;font-weight:700;letter-spacing:-0.02em">One platform for your distribution network</h2>
+<div style="font-size:15px;font-weight:600;color:#1B4F8F">Our product · AI-assisted loss detection for low-voltage networks</div>
+<h2 class="sec-title" style="margin:0;font-size:40px;line-height:1.15;font-weight:700;letter-spacing:-0.02em">Insinga LossFinder</h2>
 </div>
-<p style="flex:1 1 380px;min-width:0;margin:0;font-size:18px;color:#3B4752">Built from data you already have: GIS, billing, prepaid token sales, meter readings and field surveys. No new sensors or meters are needed to begin.</p>
+<p style="flex:1 1 380px;min-width:0;margin:0;font-size:18px;color:#3B4752">Find where energy is lost between the transformer and the meter, from the data you already have. No new meters or sensors are needed to begin.</p>
 </div>
 
-<div class="flow" role="img" aria-label="Your data flows into Insinga DataHub, which feeds Insinga LossFinder and Insinga ConnectPlan">
+<div class="flow" role="img" aria-label="Your data goes into LossFinder, which builds a data foundation, measures every transformer and ranks inspections, giving lower losses and recovered revenue">
 <div style="display:flex;flex-direction:column;gap:8px">
 <div style="font-size:13px;font-weight:600;color:#5B6772;text-transform:uppercase;letter-spacing:.06em">Your data</div>
 <div style="display:flex;flex-wrap:wrap;gap:8px"><span class="chip">Network GIS</span><span class="chip">Billing</span><span class="chip">Prepaid token sales</span><span class="chip">Meter readings</span><span class="chip">Field surveys</span></div>
 </div>
 <div class="arrow" aria-hidden="true"></div>
-<div class="pcard" style="border-color:#1B4F8F;background:#F3F7FC">
-<div style="font-size:13px;font-weight:600;color:#1B4F8F;text-transform:uppercase;letter-spacing:.06em">Foundation</div>
-<div style="font-size:20px;font-weight:700">Insinga DataHub</div>
-<div style="font-size:15px;color:#3B4752">Cleaned, connected and catalogued once. Shared safely with partners.</div>
+<div class="pcard" style="border-color:#1B4F8F;background:#F3F7FC;gap:10px">
+<div style="font-size:20px;font-weight:700">Insinga LossFinder</div>
+<div style="display:flex;flex-direction:column;gap:6px;font-size:15px;color:#3B4752"><div><strong style="color:#14202B">1. Data foundation</strong> · clean, connect, catalogue</div><div><strong style="color:#14202B">2. Virtual transformer meters</strong> · losses at every transformer</div><div><strong style="color:#14202B">3. Inspections</strong> · ranked meters, approved by engineers</div></div>
 </div>
 <div class="arrow" aria-hidden="true"></div>
-<div style="display:flex;flex-direction:column;gap:10px">
-<a class="pcard" href="#lossfinder" style="text-decoration:none;color:#14202B"><div style="font-size:18px;font-weight:700">Insinga LossFinder</div><div style="font-size:15px;color:#3B4752">Find where energy is lost on the low-voltage network.</div></a>
-<a class="pcard" href="#connectplan" style="text-decoration:none;color:#14202B"><div style="font-size:18px;font-weight:700">Insinga ConnectPlan</div><div style="font-size:15px;color:#3B4752">Plan the least-cost way to connect every household.</div></a>
+<div class="pcard">
+<div style="font-size:13px;font-weight:600;color:#5B6772;text-transform:uppercase;letter-spacing:.06em">Results</div>
+<div style="font-size:18px;font-weight:700">Lower losses, revenue recovered</div>
+<div style="font-size:15px;color:#3B4752">Tracked against your loss target on the manager dashboard.</div>
+</div>
+</div>
+
+<div class="svc" style="display:flex;flex-wrap:wrap;gap:24px 56px">
+<div style="flex:1 1 440px;min-width:0;display:flex;flex-direction:column;gap:14px">
+<p style="margin:0;font-size:17px;color:#3B4752">LossFinder compares the energy delivered to each transformer with the prepaid tokens and bills of the customers connected to it. It separates technical losses (energy lost as heat in lines and transformers) from non-technical losses (bypassed, tampered or faulty meters), and ranks where to act.</p>
+<p style="margin:0;font-size:17px;color:#3B4752"><strong style="color:#14202B">The data foundation is built in.</strong> Loss figures are only as good as the data behind them, so LossFinder starts by cleaning and connecting your GIS layers, billing records, meter readings and field surveys into one reliable database. It catalogues that data so staff know what exists, where it comes from, who owns it and how good it is.</p>
+<div style="display:flex;flex-direction:column;gap:8px"><div style="font-size:15px;font-weight:600">Manager dashboard</div><div class="kpis"><span>Loss % against target</span><span>kWh and revenue recovered</span><span>Inspections completed</span><span>Top problem transformers</span><span>Data quality score</span><span>Records corrected</span></div></div>
+<div class="ask"><strong style="color:#14202B">Ask Insinga:</strong> "Which transformers lost the most energy last month?" · "Which meters should the crew visit first?" · "Why is the customer layer's quality score low?"</div>
+<div style="font-size:15px;color:#5B6772">Starts with a Network Data Health Check on one feeder (3–4 weeks), then runs as an annual subscription.</div>
+<div style="display:flex;gap:12px;flex-wrap:wrap;padding-top:4px"><a class="btn btn-primary" href="#contact" data-demo="Demo: Insinga LossFinder" style="background:#1B4F8F">Book a LossFinder demo</a></div>
+</div>
+<div style="flex:1 1 360px;min-width:0;display:flex;flex-direction:column;gap:10px">
+<img src="assets/energy-losses.jpg" alt="Loss analysis: energy delivered versus energy sold, technical and non-technical losses, by transformer" loading="lazy" style="width:100%;max-width:100%;aspect-ratio:1300 / 709;object-fit:cover;border-radius:6px;margin-bottom:6px">
+<div style="font-size:15px;font-weight:600">How it works</div>
+<ol class="list"><li><strong>Data foundation.</strong> Cleans, connects and catalogues your network, customer, billing and meter data into one database, kept up to date by automated pipelines.</li><li><strong>Data health check.</strong> Finds customers linked to the wrong transformer, missing links and duplicate meters, which make loss figures wrong. Engineers approve every correction.</li><li><strong>Virtual transformer meters.</strong> An energy balance for every transformer, built from GIS, token sales and feeder or transformer readings.</li><li><strong>Inspection and revenue recovery.</strong> A ranked list of meters to inspect, with the reasons. Engineers approve each visit and track what is recovered.</li></ol>
 </div>
 </div>
 
 <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:28px 32px;border-top:1px solid #E1E5E9;padding-top:32px">
 <div style="display:flex;flex-direction:column;gap:6px"><div style="font-weight:600;font-size:18px">One login, clear roles</div><div style="font-size:15px;color:#3B4752">Managers, engineers, field supervisors and data officers each see what their job needs. Every action is logged.</div></div>
-<div style="display:flex;flex-direction:column;gap:6px"><div style="font-weight:600;font-size:18px">Dashboards for senior managers</div><div style="font-size:15px;color:#3B4752">Each product has a KPI dashboard showing progress against targets, plus one overview page across the platform.</div></div>
-<div style="display:flex;flex-direction:column;gap:6px"><div style="font-weight:600;font-size:18px">Ask Insinga, built in</div><div style="font-size:15px;color:#3B4752">Ask questions about your network in plain language inside any product, and see the data behind every answer.</div></div>
-<div style="display:flex;flex-direction:column;gap:6px"><div style="font-weight:600;font-size:18px">Start with one product</div><div style="font-size:15px;color:#3B4752">Each product is licensed on its own. Add the next one later on the same clean data, with no new system to learn.</div></div>
+<div style="display:flex;flex-direction:column;gap:6px"><div style="font-weight:600;font-size:18px">A dashboard for senior managers</div><div style="font-size:15px;color:#3B4752">Progress against your loss target, revenue recovered and data quality, on one page.</div></div>
+<div style="display:flex;flex-direction:column;gap:6px"><div style="font-weight:600;font-size:18px">Ask Insinga, built in</div><div style="font-size:15px;color:#3B4752">Ask questions about your network in plain language and see the data behind every answer.</div></div>
+<div style="display:flex;flex-direction:column;gap:6px"><div style="font-weight:600;font-size:18px">Ready for more</div><div style="font-size:15px;color:#3B4752">The clean data foundation is reused by new modules, so you add capabilities without a new system to learn.</div></div>
 </div>
 </div>
 </section>
 
-
-<section id="products" style="background:#FFFFFF">
-<div class="wrap" style="padding-block:80px;display:flex;flex-direction:column;gap:28px">
-<div style="max-width:720px;display:flex;flex-direction:column;gap:12px">
-<div style="font-size:15px;font-weight:600;color:#1B4F8F">Products</div>
-<h2 class="sec-title" style="margin:0;font-size:40px;line-height:1.15;font-weight:700;letter-spacing:-0.02em">Three products on one platform</h2>
-<p style="margin:0;font-size:18px;color:#3B4752">Each product does one job for one team, and each has Ask Insinga built in.</p>
+<section id="modules" style="background:#F6F7F8;border-bottom:1px solid #E1E5E9">
+<div class="wrap" style="padding-block:80px;display:flex;flex-direction:column;gap:32px">
+<div style="max-width:760px;display:flex;flex-direction:column;gap:12px">
+<div style="font-size:15px;font-weight:600;color:#1B4F8F">Coming next</div>
+<h2 class="sec-title" style="margin:0;font-size:40px;line-height:1.15;font-weight:700;letter-spacing:-0.02em">Modules you can add to LossFinder</h2>
+<p style="margin:0;font-size:18px;color:#3B4752">Once your data is clean and connected, new modules run on the same foundation and the same login. Both modules are in development. Ask us about early access.</p>
 </div>
-<div style="display:flex;flex-direction:column">
-
-<article id="lossfinder" class="svc" style="display:flex;flex-wrap:wrap;gap:24px 56px;padding-block:44px;border-top:1px solid #E1E5E9">
-<div style="flex:1 1 440px;min-width:0;display:flex;flex-direction:column;gap:14px">
-<div style="font-size:14px;font-weight:600;color:#1B4F8F">AI-assisted loss detection for low-voltage networks</div>
-<h3 style="margin:0;font-size:30px;font-weight:700;letter-spacing:-0.015em">Insinga LossFinder</h3>
-<p style="margin:0;font-size:17px;color:#3B4752">Find where energy is lost between the transformer and the meter, without installing new meters. LossFinder compares the energy delivered to each transformer with the prepaid tokens and bills of the customers connected to it, separates technical losses (energy lost as heat in lines and transformers) from non-technical losses (bypassed, tampered or faulty meters), and ranks where to act.</p>
-<div style="display:flex;flex-direction:column;gap:8px"><div style="font-size:15px;font-weight:600">Manager dashboard</div><div class="kpis"><span>Loss % against target</span><span>kWh and revenue recovered</span><span>Inspections completed</span><span>Top problem transformers</span><span>Records corrected</span></div></div>
-<div class="ask"><strong style="color:#14202B">Ask Insinga:</strong> "Which transformers lost the most energy last month?" · "Which meters should the crew visit first?"</div>
-<div style="display:flex;gap:12px;flex-wrap:wrap;padding-top:4px"><a class="btn btn-secondary" href="#contact" data-demo="Demo: Insinga LossFinder">Book a LossFinder demo</a></div>
-</div>
-<div style="flex:1 1 360px;min-width:0;display:flex;flex-direction:column;gap:10px">
-<img src="assets/energy-losses.jpg" alt="Loss analysis: energy delivered versus energy sold, technical and non-technical losses, by transformer" loading="lazy" style="width:100%;max-width:100%;aspect-ratio:1300 / 709;object-fit:cover;border-radius:6px;margin-bottom:6px">
-<div style="font-size:15px;font-weight:600">How it works</div>
-<ol class="list"><li><strong>Data health check.</strong> Finds customers linked to the wrong transformer, missing links and duplicate meters, which make loss figures wrong.</li><li><strong>Virtual transformer meters.</strong> An energy balance for every transformer, built from GIS, token sales and feeder or transformer readings.</li><li><strong>Inspection and revenue recovery.</strong> A ranked list of meters to inspect, with reasons. Engineers approve each visit and track what is recovered.</li></ol>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,440px),1fr));gap:24px">
+<article id="planning" style="background:#FFFFFF;border:1px solid #E1E5E9;border-radius:6px;overflow:hidden;display:flex;flex-direction:column;min-width:0">
+<img src="assets/electricity-access.jpg" alt="Distribution transformer on a pole above terraced hills and a village at sunset" loading="lazy" style="width:100%;max-width:100%;aspect-ratio:1200 / 560;object-fit:cover">
+<div style="padding:24px 26px;display:flex;flex-direction:column;gap:10px;flex:1">
+<div style="font-size:14px;font-weight:600;color:#1B4F8F">Planning module · in development</div>
+<h3 style="margin:0;font-size:22px;font-weight:700">Electrification planning</h3>
+<p style="margin:0;font-size:16px;color:#3B4752">Shows who is still unserved, checks where the network has capacity, and finds the least-cost way to connect each settlement by grid extension, mini-grid or solar home systems, with a prioritised investment plan.</p>
+<div style="margin-top:auto;padding-top:12px;border-top:1px solid #E1E5E9;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:8px 16px;font-size:14px"><span style="color:#5B6772">For utilities, energy agencies and electrification programmes</span><a href="#contact" data-demo="Planning module (early access)">Ask about early access</a></div>
 </div>
 </article>
-
-<article id="connectplan" class="svc" style="display:flex;flex-wrap:wrap;gap:24px 56px;padding-block:44px;border-top:1px solid #E1E5E9">
-<div style="flex:1 1 440px;min-width:0;display:flex;flex-direction:column;gap:14px">
-<div style="font-size:14px;font-weight:600;color:#1B4F8F">AI-assisted electrification planning</div>
-<h3 style="margin:0;font-size:30px;font-weight:700;letter-spacing:-0.015em">Insinga ConnectPlan</h3>
-<p style="margin:0;font-size:17px;color:#3B4752">Plan how to reach universal access. For every settlement, ConnectPlan shows who is still unserved, how far they are from the grid and whether grid extension, a mini-grid or solar home systems is the cheapest way to connect them, together with the best routes for extending the network.</p>
-<div style="display:flex;flex-direction:column;gap:8px"><div style="font-size:15px;font-weight:600">Manager dashboard</div><div class="kpis"><span>Connections against plan</span><span>Cost per connection</span><span>Progress by district</span><span>Households still unserved</span></div></div>
-<div class="ask"><strong style="color:#14202B">Ask Insinga:</strong> "How many households within 500 m of the grid are not connected?" · "Which villages are cheapest to connect by mini-grid?"</div>
-<div style="display:flex;gap:12px;flex-wrap:wrap;padding-top:4px"><a class="btn btn-secondary" href="#contact" data-demo="Demo: Insinga ConnectPlan">Book a ConnectPlan demo</a></div>
-</div>
-<div style="flex:1 1 360px;min-width:0;display:flex;flex-direction:column;gap:10px">
-<img src="assets/electricity-access.jpg" alt="Distribution transformer on a pole above terraced hills and a village at sunset" loading="lazy" style="width:100%;max-width:100%;aspect-ratio:1200 / 655;object-fit:cover;border-radius:6px;margin-bottom:6px">
-<div style="font-size:15px;font-weight:600">How it works</div>
-<ol class="list"><li>Brings together population, building, network and existing connection data in one map.</li><li>Estimates electricity demand for households, schools, health centres and businesses.</li><li>Checks where the existing network has capacity for new connections.</li><li>Produces a least-cost plan with grid extension routes, off-grid zones and a prioritised investment list.</li></ol>
-</div>
-</article>
-
-<article id="datahub" class="svc" style="display:flex;flex-wrap:wrap;gap:24px 56px;padding-block:44px;border-top:1px solid #E1E5E9;border-bottom:1px solid #E1E5E9">
-<div style="flex:1 1 440px;min-width:0;display:flex;flex-direction:column;gap:14px">
-<div style="font-size:14px;font-weight:600;color:#1B4F8F">Data foundation and governed sharing</div>
-<h3 style="margin:0;font-size:30px;font-weight:700;letter-spacing:-0.015em">Insinga DataHub</h3>
-<p style="margin:0;font-size:17px;color:#3B4752">Your network, GIS, billing and meter data, cleaned, connected, catalogued and shared safely. DataHub is the foundation every Insinga product runs on.</p><p style="margin:0;font-size:17px;color:#3B4752"><strong style="color:#14202B">Data foundation.</strong> We clean and connect GIS layers, billing records, meter readings and field surveys into one reliable database, and catalogue it so staff know what data exists, where it comes from, who owns it and how good it is.</p><p style="margin:0;font-size:17px;color:#3B4752"><strong style="color:#14202B">Governed sharing.</strong> Researchers, funders, regulators and vendors regularly ask utilities for data. With DataHub, the utility decides what is released, partners receive approved samples only, and every request is logged.</p><div style="font-size:15px;color:#5B6772">Starts with a Network Data Health Check (3–4 weeks), then runs as a subscription with automated data pipelines.</div>
-<div style="display:flex;flex-direction:column;gap:8px"><div style="font-size:15px;font-weight:600">Manager dashboard</div><div class="kpis"><span>Data quality score</span><span>Records corrected</span><span>Datasets catalogued</span><span>Sharing requests and approval time</span></div></div>
-<div class="ask"><strong style="color:#14202B">Ask Insinga:</strong> "Prepare an anonymised sample of transformer data for a research partner." · "Which GIS layers changed this month?"</div>
-<div style="display:flex;gap:12px;flex-wrap:wrap;padding-top:4px"><a class="btn btn-secondary" href="#contact" data-demo="Demo: Insinga DataHub">Book a DataHub demo</a></div>
-</div>
-<div style="flex:1 1 360px;min-width:0;display:flex;flex-direction:column;gap:10px">
-<img src="assets/data-sharing.jpg" alt="Governed data sharing: the utility keeps the full dataset and releases approved samples to partners" loading="lazy" style="width:100%;max-width:100%;aspect-ratio:1300 / 709;object-fit:cover;border-radius:6px;margin-bottom:6px">
-<div style="font-size:15px;font-weight:600">What you get</div>
-<ul class="list"><li>Data quality report and scorecard</li><li>Corrected, connected network data in a documented spatial database</li><li>Data catalogue with owners, sources and quality</li><li>Automated data pipelines that keep it up to date</li><li>Governed sharing with access rules and an audit log</li><li>Data sharing rules aligned with data protection law</li></ul>
+<article id="data-sharing" style="background:#FFFFFF;border:1px solid #E1E5E9;border-radius:6px;overflow:hidden;display:flex;flex-direction:column;min-width:0">
+<img src="assets/data-sharing.jpg" alt="Governed data sharing: the utility keeps the full dataset and releases approved samples to partners" loading="lazy" style="width:100%;max-width:100%;aspect-ratio:1200 / 560;object-fit:cover;object-position:top">
+<div style="padding:24px 26px;display:flex;flex-direction:column;gap:10px;flex:1">
+<div style="font-size:14px;font-weight:600;color:#1B4F8F">Data sharing module · in development</div>
+<h3 style="margin:0;font-size:22px;font-weight:700">Governed data sharing</h3>
+<p style="margin:0;font-size:16px;color:#3B4752">Researchers, funders, regulators and vendors regularly ask utilities for data. The utility decides what is released, partners receive approved samples only, and every request is logged, in line with data protection law.</p>
+<div style="margin-top:auto;padding-top:12px;border-top:1px solid #E1E5E9;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:8px 16px;font-size:14px"><span style="color:#5B6772">For utilities, researchers and development partners</span><a href="#contact" data-demo="Data sharing module (early access)">Ask about early access</a></div>
 </div>
 </article>
 </div>
-<div id="demos" style="display:flex;flex-wrap:wrap;gap:16px 24px;align-items:center;justify-content:space-between;background:#F6F7F8;border:1px solid #E1E5E9;border-radius:6px;padding:22px 26px;scroll-margin-top:16px">
-<p style="margin:0;font-size:16px;color:#3B4752;flex:1 1 380px;min-width:0"><strong style="color:#14202B">See it working.</strong> Schedule a call and we will walk you through the platform, or one product, on a demonstration network. A full walkthrough takes 45 minutes.</p>
-<div style="display:flex;gap:12px;flex-wrap:wrap"><a class="btn btn-primary" href="#contact" data-demo="Demo: Insinga platform walkthrough" style="background:#1B4F8F">Schedule a demo</a></div>
+<div id="demos" style="display:flex;flex-wrap:wrap;gap:16px 24px;align-items:center;justify-content:space-between;background:#FFFFFF;border:1px solid #E1E5E9;border-radius:6px;padding:22px 26px;scroll-margin-top:16px">
+<p style="margin:0;font-size:16px;color:#3B4752;flex:1 1 380px;min-width:0"><strong style="color:#14202B">See LossFinder working.</strong> Schedule a call and we will walk you through it on a demonstration network. A walkthrough takes 45 minutes.</p>
+<div style="display:flex;gap:12px;flex-wrap:wrap"><a class="btn btn-primary" href="#contact" data-demo="Demo: Insinga LossFinder" style="background:#1B4F8F">Schedule a demo</a></div>
 </div>
 </div>
 </section>
@@ -296,10 +285,10 @@ section[id],article[id]{scroll-margin-top:16px}
 <ol style="margin:0;padding:0;list-style:none;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:24px">
 <li style="display:flex;flex-direction:column;gap:6px;border-top:1px solid #C9D0D7;padding-top:16px"><span class="mono" style="font-size:13px;color:#1B4F8F">1</span><span style="font-weight:600;font-size:18px">Free first call</span><span style="font-size:15px;color:#3B4752">We learn about your network, your data and your targets.</span></li>
 <li style="display:flex;flex-direction:column;gap:6px;border-top:1px solid #C9D0D7;padding-top:16px"><span class="mono" style="font-size:13px;color:#1B4F8F">2</span><span style="font-weight:600;font-size:18px">Network Data Health Check</span><span style="font-size:15px;color:#3B4752">3–4 weeks. A data quality scorecard and corrected network data for the pilot area.</span></li>
-<li style="display:flex;flex-direction:column;gap:6px;border-top:1px solid #C9D0D7;padding-top:16px"><span class="mono" style="font-size:13px;color:#1B4F8F">3</span><span style="font-weight:600;font-size:18px">Pilot</span><span style="font-size:15px;color:#3B4752">LossFinder or ConnectPlan on one feeder or district, with results checked against field inspections.</span></li>
+<li style="display:flex;flex-direction:column;gap:6px;border-top:1px solid #C9D0D7;padding-top:16px"><span class="mono" style="font-size:13px;color:#1B4F8F">3</span><span style="font-weight:600;font-size:18px">Pilot</span><span style="font-size:15px;color:#3B4752">LossFinder on one feeder or district, with results checked against field inspections.</span></li>
 <li style="display:flex;flex-direction:column;gap:6px;border-top:1px solid #C9D0D7;padding-top:16px"><span class="mono" style="font-size:13px;color:#1B4F8F">4</span><span style="font-weight:600;font-size:18px">Roll out</span><span style="font-size:15px;color:#3B4752">Extend to more feeders and districts, with training for your staff and ongoing support.</span></li>
 </ol>
-<div style="font-size:15px;color:#5B6772">Set-up is a fixed fee agreed after the first call. Each product is then an annual subscription.</div>
+<div style="font-size:15px;color:#5B6772">Set-up is a fixed fee agreed after the first call. LossFinder is then an annual subscription, and modules can be added later.</div>
 </div>
 </section>
 
@@ -321,45 +310,18 @@ section[id],article[id]{scroll-margin-top:16px}
 <div style="flex:1 1 420px;min-width:0;display:flex;flex-direction:column;gap:16px">
 <div style="font-size:14px;font-weight:600;color:#5B6772">Story 01</div>
 <h3 style="margin:0;font-size:28px;line-height:1.2;font-weight:700;letter-spacing:-0.01em">From the top of the pole to the database</h3>
-<p style="margin:0;font-size:18px;line-height:1.7;color:#3B4752">For six years, our co-founder and CEO, Nshuti Elisé, worked as a lineman and electrical engineer on medium- and low-voltage networks at Rwanda Energy Group. He climbed poles to repair faults, and he collected the same field GIS data that utilities now struggle to use. He then trained in data science at Carnegie Mellon University Africa.</p>
-<p style="margin:0;font-size:18px;line-height:1.7;color:#3B4752">That is why we know the network from high-voltage pylons to smart meters, both on the ground and in the database, and why the two often disagree.</p>
+<p style="margin:0;font-size:18px;line-height:1.7;color:#3B4752">For six years, our co-founder and CEO, Nshuti Elisé, worked as a lineman and electrical engineer on medium- and low-voltage networks at Rwanda Energy Group. He climbed poles to repair faults, installed and repaired customer meters, and walked the lines with a phone to collect the field GIS data that utilities rely on today.</p>
+<p style="margin:0;font-size:18px;line-height:1.7;color:#3B4752">On the ground, he met what the records often miss. A new customer is connected, or a faulty meter replaced, in a hurry or carelessly, and the change never reaches the GIS, or reaches it wrong. Some meters are tampered with so they record less than is used, others are bypassed, and illegal connections hang off the lines. A meter hit by lightning can stop counting while it keeps supplying power, and nobody notices for months. Rain and storms damage other meters and connections, and poor-quality materials end up on the network without the utility knowing. Often nobody can say exactly how many households a transformer supplies. Each problem is small. Added up across a network, they become the energy losses no one can locate.</p>
+<p style="margin:0;font-size:18px;line-height:1.7;color:#3B4752">He then trained in data science at Carnegie Mellon University Africa, where his research mapped and computed energy losses on distribution networks. Every pole, meter and token sale became a record in a spatial database, linked to the transformer that feeds it, and AI could find the patterns no single field visit shows.</p>
+<p style="margin:0;font-size:18px;line-height:1.7;color:#3B4752"><strong style="color:#14202B">That is the idea behind LossFinder:</strong> bring the network on the ground and the network in the database back into agreement, then show crews exactly where to act.</p>
 </div>
 </div>
 </div>
 </section>
 
-<section id="experience" style="background:#FFFFFF">
-<div class="wrap" style="padding-block:72px;display:flex;flex-direction:column;gap:28px">
-<div style="max-width:720px;display:flex;flex-direction:column;gap:12px">
-<div style="font-size:15px;font-weight:600;color:#1B4F8F">Track record</div>
-<h2 class="sec-title" style="margin:0;font-size:40px;line-height:1.15;font-weight:700;letter-spacing:-0.02em">Selected experience</h2>
-</div>
-<div style="display:flex;flex-direction:column;border-top:1px solid #E1E5E9">
-<div style="display:flex;flex-wrap:wrap;gap:4px 40px;padding-block:18px;border-bottom:1px solid #E1E5E9"><div style="flex:0 0 130px;font-size:15px;color:#5B6772">Current</div><div style="flex:1 1 420px;min-width:0"><div style="font-weight:600;font-size:17px">Governed data sharing portal at Rwanda Space Agency (RSA)</div><div style="font-size:16px;color:#3B4752">Building a governed geospatial data sharing portal, giving institutions controlled access to national geospatial data.</div></div></div>
-<div style="display:flex;flex-wrap:wrap;gap:4px 40px;padding-block:18px;border-bottom:1px solid #E1E5E9"><div style="flex:0 0 130px;font-size:15px;color:#5B6772">2026</div><div style="flex:1 1 420px;min-width:0"><div style="font-weight:600;font-size:17px">GIS solution architecture and governed data sharing for an electrification research programme</div><div style="font-size:16px;color:#3B4752">Led GIS data engineering and the software team for a UK-funded research project with Rwanda's national utility. Designed an auditable data-sharing architecture between the utility and a research centre, built with PostGIS, a data catalogue, APIs and AI-assisted analysis.</div></div></div>
-<div style="display:flex;flex-wrap:wrap;gap:4px 40px;padding-block:18px;border-bottom:1px solid #E1E5E9"><div style="flex:0 0 130px;font-size:15px;color:#5B6772">2024–2025</div><div style="flex:1 1 420px;min-width:0"><div style="font-weight:600;font-size:17px">Energy loss mapping and computation research</div><div style="font-size:16px;color:#3B4752">Graduate research at Carnegie Mellon University Africa on estimating where distribution losses occur.</div></div></div>
-<div style="display:flex;flex-wrap:wrap;gap:4px 40px;padding-block:18px;border-bottom:1px solid #E1E5E9"><div style="flex:0 0 130px;font-size:15px;color:#5B6772">Data quality</div><div style="flex:1 1 420px;min-width:0"><div style="font-weight:600;font-size:17px">LV and MV network data cleaning and quality assessment</div><div style="font-size:16px;color:#3B4752">Distribution network GIS data.</div></div></div>
-<div style="display:flex;flex-wrap:wrap;gap:4px 40px;padding-block:18px;border-bottom:1px solid #E1E5E9"><div style="flex:0 0 130px;font-size:15px;color:#5B6772">2016–2022</div><div style="flex:1 1 420px;min-width:0"><div style="font-weight:600;font-size:17px">Field GIS data collection on MV and LV distribution networks</div><div style="font-size:16px;color:#3B4752">Electrical engineer at a national utility, mapping lines, poles and transformers with ODK and KoBoToolbox.</div></div></div>
-</div>
-</div>
-</section>
 
-<section id="training" style="background:#F6F7F8;border-top:1px solid #E1E5E9;border-bottom:1px solid #E1E5E9">
-<div class="wrap" style="padding-block:72px;display:flex;flex-wrap:wrap;gap:40px 56px;align-items:flex-start">
-<div style="flex:1 1 320px;min-width:0;display:flex;flex-direction:column;gap:14px">
-<div style="font-size:15px;font-weight:600;color:#1B4F8F">Training</div>
-<h2 class="sec-title" style="margin:0;font-size:40px;line-height:1.15;font-weight:700;letter-spacing:-0.02em">Courses for utility staff</h2>
-<p style="margin:0;font-size:17px;color:#3B4752">Practical courses using your own network data, for engineers, GIS officers and managers. Training comes with every Insinga roll-out and is also available on its own, on site or online.</p>
-<a class="btn btn-secondary" href="#contact" data-demo="Training" style="align-self:flex-start">Ask about training</a>
-</div>
-<div style="flex:1 1 480px;min-width:0;display:flex;flex-direction:column;border-top:1px solid #E1E5E9">
-<div style="display:flex;flex-wrap:wrap;justify-content:space-between;gap:2px 24px;padding-block:14px;border-bottom:1px solid #E1E5E9"><div style="flex:1 1 300px;min-width:0"><div style="font-weight:600">GIS for distribution networks</div><div style="font-size:15px;color:#3B4752">QGIS and PostGIS for mapping, editing and checking network data.</div></div><div style="font-size:14px;color:#5B6772">Engineers · 5 days</div></div>
-<div style="display:flex;flex-wrap:wrap;justify-content:space-between;gap:2px 24px;padding-block:14px;border-bottom:1px solid #E1E5E9"><div style="flex:1 1 300px;min-width:0"><div style="font-weight:600">Network data quality</div><div style="font-size:15px;color:#3B4752">Finding and correcting topology errors, duplicates and missing links.</div></div><div style="font-size:14px;color:#5B6772">GIS teams · 3 days</div></div>
-<div style="display:flex;flex-wrap:wrap;justify-content:space-between;gap:2px 24px;padding-block:14px;border-bottom:1px solid #E1E5E9"><div style="flex:1 1 300px;min-width:0"><div style="font-weight:600">Data governance for utilities</div><div style="font-size:15px;color:#3B4752">Data ownership, standards, sharing rules and data protection.</div></div><div style="font-size:14px;color:#5B6772">Managers · 2 days</div></div>
-<div style="display:flex;flex-wrap:wrap;justify-content:space-between;gap:2px 24px;padding-block:14px;border-bottom:1px solid #E1E5E9"><div style="flex:1 1 300px;min-width:0"><div style="font-weight:600">Python, R, SQL and AI for energy data</div><div style="font-size:15px;color:#3B4752">Querying network and customer databases, automating routine analysis and reports, and using AI tools responsibly.</div></div><div style="font-size:14px;color:#5B6772">Analysts · 5 days</div></div>
-</div>
-</div>
-</section>
+
+
 
 <section id="team" style="background:#FFFFFF">
 <div class="wrap" style="padding-block:72px;display:flex;flex-direction:column;gap:36px">
@@ -433,7 +395,7 @@ section[id],article[id]{scroll-margin-top:16px}
 <h2 class="sec-title" style="margin:0;font-size:40px;line-height:1.15;font-weight:700;letter-spacing:-0.02em">Common questions</h2>
 </div>
 <div style="flex:2 1 520px;min-width:0;border-top:1px solid #E1E5E9">
-<details><summary>Do we need new meters or sensors?</summary><p>No. Insinga starts from data you already hold: network GIS, billing, prepaid token sales, meter readings and feeder or transformer readings.</p></details><details><summary>Will our data be used to train models for other utilities?</summary><p>No. Your data is never used to train shared models. Each utility's results are built from its own data, for its own network.</p></details><details><summary>Who can see our data?</summary><p>Only the people you approve. Access is set by role, and every action and data release is logged.</p></details><details><summary>Where does Insinga run?</summary><p>On your own servers, in a local or national cloud, or hosted by us, depending on your data protection and data residency rules.</p></details><details><summary>Does Insinga make decisions on its own?</summary><p>No. It recommends corrections, plans and inspections. Your engineers and managers review and approve every action.</p></details><details><summary>Can we start with only one product?</summary><p>Yes. Each product is licensed separately. Most utilities start with a Network Data Health Check and LossFinder on one feeder, then add more.</p></details><details><summary>What do you need from us to start a pilot?</summary><p>The network map for the pilot area, a year of prepaid sales or billing data, and feeder or transformer readings if you have them. We agree data handling rules with you before anything is shared.</p></details>
+<details><summary>Do we need new meters or sensors?</summary><p>No. Insinga starts from data you already hold: network GIS, billing, prepaid token sales, meter readings and feeder or transformer readings.</p></details><details><summary>Will our data be used to train models for other utilities?</summary><p>No. Your data is never used to train shared models. Each utility's results are built from its own data, for its own network.</p></details><details><summary>Who can see our data?</summary><p>Only the people you approve. Access is set by role, and every action and data release is logged.</p></details><details><summary>Where does Insinga run?</summary><p>On your own servers, in a local or national cloud, or hosted by us, depending on your data protection and data residency rules.</p></details><details><summary>Does Insinga make decisions on its own?</summary><p>No. It recommends corrections, plans and inspections. Your engineers and managers review and approve every action.</p></details><details><summary>Can we start small?</summary><p>Yes. Most utilities start with a Network Data Health Check and LossFinder on one feeder, then extend to more feeders. Modules such as electrification planning and data sharing can be added later on the same data.</p></details><details><summary>What do you need from us to start a pilot?</summary><p>The network map for the pilot area, a year of prepaid sales or billing data, and feeder or transformer readings if you have them. We agree data handling rules with you before anything is shared.</p></details>
 </div>
 </div>
 </section>
@@ -465,7 +427,7 @@ section[id],article[id]{scroll-margin-top:16px}
 <div style="display:flex;flex-direction:column;gap:6px"><label for="f-name" style="font-weight:500;font-size:15px">Name</label><input id="f-name" name="name" type="text" autocomplete="name" required style="min-height:44px;padding:0 12px;border:1px solid #C9D0D7;border-radius:4px"></div>
 <div style="display:flex;flex-direction:column;gap:6px"><label for="f-org" style="font-weight:500;font-size:15px">Organisation</label><input id="f-org" name="organisation" type="text" autocomplete="organization" style="min-height:44px;padding:0 12px;border:1px solid #C9D0D7;border-radius:4px"></div>
 <div style="display:flex;flex-direction:column;gap:6px"><label for="f-email" style="font-weight:500;font-size:15px">Work email</label><input id="f-email" name="email" type="email" autocomplete="email" required style="min-height:44px;padding:0 12px;border:1px solid #C9D0D7;border-radius:4px"></div>
-<div style="display:flex;flex-direction:column;gap:6px"><label for="f-need" style="font-weight:500;font-size:15px">Area of interest</label><select id="f-need" name="interest" style="min-height:44px;padding:0 12px;border:1px solid #C9D0D7;border-radius:4px;background:#FFFFFF"><option>Demo: Insinga platform walkthrough</option><option>Demo: Insinga LossFinder</option><option>Demo: Insinga ConnectPlan</option><option>Demo: Insinga DataHub</option><option>Network Data Health Check</option><option>Pilot on one feeder or district</option><option>Training</option><option>Partnership or research</option><option>Other</option></select></div>
+<div style="display:flex;flex-direction:column;gap:6px"><label for="f-need" style="font-weight:500;font-size:15px">Area of interest</label><select id="f-need" name="interest" style="min-height:44px;padding:0 12px;border:1px solid #C9D0D7;border-radius:4px;background:#FFFFFF"><option>Demo: Insinga LossFinder</option><option>Network Data Health Check</option><option>Pilot on one feeder or district</option><option>Planning module (early access)</option><option>Data sharing module (early access)</option><option>Partnership or research</option><option>Other</option></select></div>
 <div style="display:flex;flex-direction:column;gap:6px"><label for="f-msg" style="font-weight:500;font-size:15px">Message</label><textarea id="f-msg" name="message" required rows="4" style="padding:10px 12px;border:1px solid #C9D0D7;border-radius:4px;resize:vertical"></textarea></div>
 <button id="f-submit" type="submit" class="btn btn-primary" style="border:0;cursor:pointer;align-self:flex-start;background:#1B4F8F">Send message</button>
 <p id="f-status" role="status" aria-live="polite" style="margin:0;font-size:15px" hidden></p>
@@ -478,10 +440,10 @@ section[id],article[id]{scroll-margin-top:16px}
 <div style="display:flex;flex-wrap:wrap;gap:24px 40px;align-items:center;justify-content:space-between;border-bottom:1px solid #24364A;padding-bottom:44px">
 <div style="flex:1 1 420px;min-width:0;display:flex;flex-direction:column;gap:8px">
 <div style="font-size:32px;line-height:1.15;font-weight:700;letter-spacing:-0.015em;color:#FFFFFF">Schedule a demo</div>
-<p style="margin:0;font-size:16px">See LossFinder, ConnectPlan and DataHub working, then ask us about your own network.</p>
+<p style="margin:0;font-size:16px">See LossFinder working on a demonstration network, then ask us about your own.</p>
 </div>
 <div style="display:flex;gap:12px;flex-wrap:wrap">
-<a class="btn btn-light" href="#contact" data-demo="Demo: Insinga platform walkthrough">Schedule a demo</a>
+<a class="btn btn-light" href="#contact" data-demo="Demo: Insinga LossFinder">Schedule a demo</a>
 <a class="btn btn-outline-light" href="#contact">Contact us</a>
 </div>
 </div>
@@ -490,8 +452,8 @@ section[id],article[id]{scroll-margin-top:16px}
 <div style="display:flex;align-items:center;gap:12px"><svg width="34" height="34" viewBox="0 0 34 34" aria-hidden="true"><rect x="0.5" y="0.5" width="33" height="33" rx="5" fill="#1B4F8F"></rect><path d="M6 22 H14 L20 12 H28" stroke="#FFFFFF" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></path><circle cx="14" cy="22" r="2.8" fill="#FFFFFF"></circle><circle cx="20" cy="12" r="2.8" fill="#FFFFFF"></circle></svg><span style="display:flex;flex-direction:column;line-height:1.15"><span style="font-size:18px;font-weight:700;color:#FFFFFF">Insinga</span><span style="font-size:13px">Grid Analytics</span></span></div>
 <p style="margin:0;font-size:15px">Unlocking the value of utility and energy data.</p>
 </div>
-<div style="display:flex;flex-direction:column;gap:8px;font-size:15px"><div style="font-weight:600;color:#FFFFFF">Products</div><a class="flink" href="#lossfinder">Insinga LossFinder</a><a class="flink" href="#connectplan">Insinga ConnectPlan</a><a class="flink" href="#datahub">Insinga DataHub</a></div>
-<div style="display:flex;flex-direction:column;gap:8px;font-size:15px"><div style="font-weight:600;color:#FFFFFF">Company</div><a class="flink" href="#platform">Platform</a><a class="flink" href="#stories">Stories from the line</a><a class="flink" href="#experience">Track record</a><a class="flink" href="#training">Training</a><a class="flink" href="#team">Team</a><a class="flink" href="#faq">FAQ</a></div>
+<div style="display:flex;flex-direction:column;gap:8px;font-size:15px"><div style="font-weight:600;color:#FFFFFF">Product</div><a class="flink" href="#lossfinder">Insinga LossFinder</a><a class="flink" href="#planning">Planning module</a><a class="flink" href="#data-sharing">Data sharing module</a><a class="flink" href="#getting-started">Getting started</a></div>
+<div style="display:flex;flex-direction:column;gap:8px;font-size:15px"><div style="font-weight:600;color:#FFFFFF">Company</div><a class="flink" href="#stories">Stories from the line</a><a class="flink" href="#team">Team</a><a class="flink" href="#faq">FAQ</a></div>
 <div style="display:flex;flex-direction:column;gap:8px;font-size:15px"><div style="font-weight:600;color:#FFFFFF">Headquarters</div><span>Gasabo, Kigali, Rwanda</span><div style="font-weight:600;color:#FFFFFF;margin-top:10px">Contact</div><span>General enquiries: <a class="flink" href="mailto:enshuti01@gmail.com">enshuti01@gmail.com</a></span><span>Careers and partnerships: <a class="flink" href="mailto:enshuti01@gmail.com">enshuti01@gmail.com</a></span><a class="flink" href="tel:+250785547693">+250 785 547 693</a></div>
 </div>
 <div style="border-top:1px solid #24364A;padding-top:20px;display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 24px;font-size:14px"><span>© 2026 Insinga Grid Analytics. All rights reserved.</span><span style="display:flex;gap:20px;flex-wrap:wrap"><a class="flink" href="privacy.html">Privacy notice</a><a class="flink" href="https://www.linkedin.com/in/elise-nshuti/">LinkedIn</a></span></div>
